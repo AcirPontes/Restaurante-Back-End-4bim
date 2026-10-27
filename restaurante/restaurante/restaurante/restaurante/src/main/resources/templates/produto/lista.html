@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Produtos</title>
+    <link rel="stylesheet" th:href="@{/produto/produtos.css}">
+</head>
+<body>
+
+<h1>Produtos</h1>
+
+<a th:href="@{/produtos}">Produto</a>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Ações</th>
+    </tr>
+
+   <!-- <tr>
+        <td>001</td>
+        <td>Danone Iogurte 100g</td>
+        <td>R$ 5,50</td>
+        <td>Editar | Excluir</td>
+    </tr>
+
+    <tr>
+        <td>002</td>
+        <td>Mabel Rosquinha 500g</td>
+        <td>R$ 8,00</td>
+        <td>Editar | Excluir</td>
+    </tr>
+
+    <tr>
+        <td>003</td>
+        <td>Leite Cooperar 1000ml</td>
+        <td>R$ 4,50</td>
+        <td>Editar | Excluir</td>
+    </tr>
+
+    <tr>
+        <td>004</td>
+        <td>Toddy Achocolatado 600g</td>
+        <td>R$ 6,50</td>
+        <td>Editar | Excluir</td>
+    </tr>
+
+    <tr>
+        <td>005</td>
+        <td>Garoto Bombom 250g</td>
+        <td>R$ 12,00</td>
+        <td>Editar | Excluir</td>
+    </tr>
+
+    <tr>
+        <td>006</td>
+        <td>Laranja</td>
+        <td>R$ 6,00 (por kg)</td>
+        <td>Editar | Excluir</td>
+    </tr>
+
+    <tr>
+        <td>007</td>
+        <td>Banana Nanica</td>
+        <td>R$ 7,00 (por kg)</td>
+        <td>Editar | Excluir</td>
+    </tr>
+
+    <tr>
+        <td>008</td>
+        <td>Maçã</td>
+        <td>R$ 13,00 (por kg)</td>
+        <td>Editar | Excluir</td>
+    </tr>
+
+    <tr>
+        <td>009</td>
+        <td>Limão</td>
+        <td>R$ 9,00 (por kg)</td>
+        <td>Editar | Excluir</td>
+    </tr>
+
+    <tr>
+        <td>010</td>
+        <td>Batata-doce</td>
+        <td>R$ 7,50 (por kg)</td>
+        <td>Editar | Excluir</td>
+    </tr> -->
+
+    <tr th:each="p : ${produtos}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.nome}"></td>
+        <td th:text="${p.preco}"></td>
+        <td>
+            <a th:href="@{/produtos/editar/{id}(id=${p.id})}">Editar</a> |
+            <a th:href="@{/produtos/excluir/{id}(id=${p.id})}">Excluir</a>
+        </td>
+    </tr>
+</table>
+
+<a th:href="@{/produtos/cadastrar}">
+    Cadastrar Produto
+</a>
+
+</body>
+</html>
